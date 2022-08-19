@@ -70,7 +70,8 @@ echo wp_get_attachment_image(43,'full',"",['class'=>'w-100 h-auto d-block','styl
 echo '</div>';
 
 echo '<div class="col-md-7 p-0">';
-the_post_thumbnail('full',array('class'=>'position-absolute d-md-block d-none img-featured','style'=>'top:50%;left:50%;transform:translate(-50%, -50%);object-fit:contain;'));
+the_post_thumbnail('full',array('class'=>'w-100 h-100 d-md-block d-none img-featured','style'=>'top:0;left:0;'));
+// the_post_thumbnail('full',array('class'=>'position-absolute d-md-block d-none img-featured','style'=>'top:50%;left:50%;transform:translate(-50%, -50%);object-fit:contain;'));
 the_post_thumbnail('full',array('class'=>'w-100 h-auto position-relative d-md-none d-block','style'=>''));
 echo '</div>';
 
