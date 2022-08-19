@@ -1,5 +1,7 @@
 <?php get_header();
 
+echo 'testing 123';
+
 // start of header
 echo '<section class="position-relative">';
 echo '<div class="container-fluid">';
