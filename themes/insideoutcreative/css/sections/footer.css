@@ -1,0 +1,5 @@
+footer ul.menu>li>a {
+    color: #636363;
+    border-left: 1px solid;
+    padding: 0 18px;
+}

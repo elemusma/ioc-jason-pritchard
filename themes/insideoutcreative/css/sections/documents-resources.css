@@ -1,0 +1,8 @@
+.col-documents-resources,
+.col-documents-resources * {
+    transition: all .25s ease-in-out;
+}
+
+.col-documents-resources:hover>div {
+    background: white !important;
+}
