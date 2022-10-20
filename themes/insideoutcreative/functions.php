@@ -17,6 +17,9 @@ if(is_front_page() || is_page_template('templates/resources.php') || is_page_tem
 if( is_page_template('templates/documents-resources.php') ){
 	wp_enqueue_style('documents-resources', get_theme_file_uri('/css/sections/documents-resources.css'));
 }
+if( is_page_template('templates/resources-team.php') ){
+	wp_enqueue_style('resources', get_theme_file_uri('/css/sections/resources.css'));
+}
 if(is_page_template('templates/about.php')){
 	wp_enqueue_style('about-custom', get_theme_file_uri('/css/sections/about.css'));
 	wp_enqueue_style('intro', get_theme_file_uri('/css/sections/intro.css'));
@@ -182,7 +185,23 @@ function member_only_shortcode($atts, $content = null)
 add_shortcode('member_only', 'member_only_shortcode');
 
 
+function divider_shortcode( $atts, $content = null ) {
 
+	$a = shortcode_atts( array(
+
+		'class' => '',
+
+		'style' => ''
+
+	), $atts );
+
+	return '<div class="divider ' . esc_attr($a['class']) . '" style="' . esc_attr($a['style']) . '"></div>';
+
+// [divider class="" style=""]
+
+}
+
+add_shortcode( 'divider', 'divider_shortcode' );
 
 
 add_filter( 'admin_bar_menu', 'replace_wordpress_howdy', 25 );

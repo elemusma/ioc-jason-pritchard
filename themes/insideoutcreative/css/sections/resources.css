@@ -1,0 +1,16 @@
+/* start of team */
+.content-col ul {
+    list-style-type: square;
+}
+
+.logo-header {
+    transform: translate(85px, 0px);
+    z-index: 0;
+}
+
+.team-repeater:last-child .content-col>div {
+    border-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* end of team */
