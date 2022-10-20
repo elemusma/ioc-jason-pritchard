@@ -66,11 +66,22 @@
 
 .col-resources:hover .col-resources-title {
     transform: scale(1.15);
+    display: block;
+    transition: all .25s ease-in-out;
 }
 
 @media only screen and (min-width:1199px) {
     .col-resources:hover .col-resources-title {
         transform: scale(1.25);
+    }
+
+    .resources-col-description {
+        opacity: 0;
+        transition: all .25s ease-in-out;
+    }
+
+    .col-resources:hover .resources-col-description {
+        opacity: 1;
     }
 }
 

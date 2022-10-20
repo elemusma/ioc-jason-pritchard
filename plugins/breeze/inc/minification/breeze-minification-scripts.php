@@ -152,6 +152,14 @@ class Breeze_MinificationScripts extends Breeze_MinificationBase {
 			return false;
 		}
 
+
+		if(false === $this->group_js && false === $this->include_inline){
+			$this->donotmove_exception[] = '/wp-includes/js/dist/i18n.js';
+			$this->donotmove_exception[] = '/wp-includes/js/dist/i18n.min.js';
+			$this->dontmove[] = '/wp-includes/js/dist/i18n.js';
+			$this->dontmove[] = '/wp-includes/js/dist/i18n.min.js';
+		}
+
 		$this->delay_javascript   = $options['delay_javascript'];
 		$this->is_inline_delay_on = $options['is_inline_delay_on'];
 		// only optimize known good JS?

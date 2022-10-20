@@ -173,7 +173,7 @@ $gallery = get_sub_field('gallery');
 
 echo '<section class="pt-5 pb-5 position-relative" style="">';
 echo '<div class="container">';
-echo '<div class="row justify-content-end align-items-center">';
+echo '<div class="row justify-content-center align-items-center">';
 
 if( $gallery ): 
 foreach( $gallery as $image ):
@@ -226,15 +226,15 @@ echo '<a href="tel:+1' . get_field('phone','options') . '" class="h3 text-white"
 
 echo '</div>';
 
-echo '<div class="d-flex align-items-center justify-content-end pt-2">';
+// echo '<div class="d-flex align-items-center justify-content-end pt-2">';
 
-echo '<div class="mr-4" style="width:25px;">';
-echo '<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>';
-echo '</div>';
+// echo '<div class="mr-4" style="width:25px;">';
+// echo '<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>';
+// echo '</div>';
 
-echo '<span" class="text-gray">' . get_field('address','options') . '</span>';
+// echo '<span" class="text-gray">' . get_field('address','options') . '</span>';
 
-echo '</div>';
+// echo '</div>';
 
 echo '</div>';
 

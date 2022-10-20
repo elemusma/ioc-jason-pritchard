@@ -6,6 +6,7 @@
 
  get_header();
 
+ if(is_user_logged_in()):
 //  start of header
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
@@ -16,7 +17,7 @@ echo '<a class="btn-accent-primary" href="' . home_url() . '/resources/" target=
 echo '</div>';
 
 echo '<div class="col-md-6 text-center">';
-echo '<h1 class="text-black d-inline-block p-3 text-uppercase bold" style="border-top:4px solid var(--accent-primary);border-bottom:4px solid var(--accent-primary);">' . get_the_title() . '</h1>';
+echo '<h1 class="text-black d-inline-block p-3 text-uppercase bold border-top-bottom" style="border-top:4px solid var(--accent-primary);border-bottom:4px solid var(--accent-primary);">' . get_the_title() . '</h1>';
 echo '</div>';
 
 
@@ -65,6 +66,11 @@ if(have_rows('sections')):
     echo '</section>';
 endif;
 // end of content
+else:
+
+    echo get_template_part('partials/is-user-logged-in');
+
+endif;
 
  get_footer();
 

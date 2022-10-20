@@ -27,7 +27,8 @@
 }
 
 .bg-content {
-  width: 95%;
+  min-width: 250px;
+  width: 75%;
   background: white;
   position: relative;
   margin: auto;

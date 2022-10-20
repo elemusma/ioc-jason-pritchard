@@ -51,6 +51,11 @@ a.text-black:hover {
   white-space: nowrap;
 }
 
+.border-top-bottom {
+  border-top: 4px solid var(--accent-primary);
+  border-bottom: 4px solid var(--accent-primary);
+}
+
 h1,
 .h1,
 h2,

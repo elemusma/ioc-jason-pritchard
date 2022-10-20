@@ -130,7 +130,11 @@ class Breeze_PurgeCache {
 			$post_type = get_post_type( $post->ID );
 
 			$flush_cache = true;
-			if ( 'tribe_events' === $post_type ) {
+			$ignore_object_cache = array(
+				'tribe_events',
+				'shop_order',
+			);
+			if ( in_array( $post_type, $ignore_object_cache ) ) {
 				$flush_cache = false;
 			}
 		}
@@ -140,7 +144,10 @@ class Breeze_PurgeCache {
 		}
 
 		if ( function_exists( 'wp_cache_flush' ) && true === $flush_cache ) {
-			wp_cache_flush();
+			#if ( ! defined( 'RedisCachePro\Version' ) && ! defined( 'WP_REDIS_VERSION' ) ) {
+				wp_cache_flush();
+			#}
+
 		}
 	}
 
@@ -181,6 +188,18 @@ class Breeze_PurgeCache {
 		}
 
 		return $instance;
+	}
+
+
+	public static function __flush_object_cache() {
+		set_as_network_screen();
+
+		if ( is_network_admin() ) {
+			// in case we need to add something specific for network.
+			return wp_cache_flush();
+		}
+
+		return wp_cache_flush();
 	}
 
 }

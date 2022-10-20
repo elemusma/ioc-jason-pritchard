@@ -38,10 +38,10 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto m-aut
 </div>
 <?php 
 echo '<div class="col-md-3">';
-    wp_nav_menu(array(
-    'menu' => 'Contact',
-    'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
-    ));
+    // wp_nav_menu(array(
+    // 'menu' => 'Contact',
+    // 'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
+    // ));
 echo '</div>';
 ?>
 <!-- <div class="col-lg-4 col-6 desktop-hidden">
