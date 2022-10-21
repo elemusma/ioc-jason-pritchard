@@ -71,9 +71,9 @@
 }
 
 @media only screen and (min-width:1199px) {
-    .col-resources:hover .col-resources-title {
+    /* .col-resources:hover .col-resources-title {
         transform: scale(1.25);
-    }
+    } */
 
     .resources-col-description {
         opacity: 0;
