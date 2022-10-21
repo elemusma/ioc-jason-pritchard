@@ -1,6 +1,6 @@
 <?php 
 if(have_rows('icons','options')): 
-    echo '<div class="row align-items-center">';
+    echo '<div class="row align-items-center justify-content-center">';
     while(have_rows('icons','options')): the_row(); 
     $svg = get_sub_field('svg');
     $link = get_sub_field('link');
