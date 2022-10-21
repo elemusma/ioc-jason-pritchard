@@ -146,13 +146,13 @@ function remove_website_field_from_comment_form($fields)
 
 function btn_shortcode( $atts, $content = null ) {
     $a = shortcode_atts( array(
-        // 'class' => 'button',
+        'class' => '',
         'href'  =>  '#',
-        // 'style' =>  '', 
+        'style' =>  '', 
 		'target' => ''
     ), $atts );
 
-    return '<a class="btn-accent-primary" href="' . esc_attr($a['href']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
+    return '<a class="btn-accent-primary ' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" target="' . esc_attr($a['target']) . '" style="' . esc_attr($a['style']) . '">' . $content . '</a>';
     // return '<a class="' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" style="' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
 
 	// [button href="foo" class="btn btn-lg btn-default" style="font-weight:bold; margin-top:50px; background-color: #999"]Learn More[/button]
