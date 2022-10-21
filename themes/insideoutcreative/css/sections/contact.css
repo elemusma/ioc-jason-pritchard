@@ -24,6 +24,13 @@ input.gform_button.button:hover {
 
 input,
 textarea {
-  box-shadow: inset 1px 1px 8px #eaeaea !important;
+  /* box-shadow: inset 1px 1px 8px #eaeaea !important; */
   border: none;
+  background: #2c2a2b;
+  color: white;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline-color: var(--accent-secondary);
 }
