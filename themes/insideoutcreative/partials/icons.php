@@ -7,7 +7,7 @@ if(have_rows('icons','options')):
     $link_url = $link['url'];
     $link_title = $link['title'];
     $link_target = $link['target'] ? $link['target'] : '_self';
-echo '<div class="col-md">';
+echo '<div class="col-md-4">';
 
 if($link_url == '#'){
     echo '<div class="d-flex align-items-center">';

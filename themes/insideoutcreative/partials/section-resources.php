@@ -40,7 +40,7 @@ echo '</div>';
 echo '<div class="">';
 echo '<span class="col-resources-title h3 text-white">' . esc_html( $link_title ) . '</span>';
 
-echo '<div class="resources-col-description text-white pt-2">';
+echo '<div class="resources-col-description text-white pt-2 small">';
 echo get_sub_field('description');
 echo '</div>';
 echo '</div>';
