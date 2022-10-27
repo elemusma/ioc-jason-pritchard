@@ -2,7 +2,7 @@
 
 // start of contact
 if(have_rows('contact_content',2)): while(have_rows('contact_content',2)): the_row();
-echo '<section class="pt-5 pb-5 position-relative" style="background:#010101;">';
+echo '<section class="pt-5 pb-5 position-relative" style="background:#010101;" id="contact-form">';
 echo '<div class="position-absolute" style="top:0px;left:0;" id="contact"></div>';
 echo '<div class="container">';
 echo '<div class="row justify-content-start align-items-start">';
