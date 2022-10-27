@@ -26,9 +26,42 @@ echo '</div>';
 echo '</section>';
 //  end of header
 
+echo '<section class="">';
+    echo '<div class="container">';
+    echo '<div class="row pt-4">';
+    echo '<div class="col-12 pb-2">';
+            echo '<h2 class="bold">NEW RELEASES</h2>';
+
+            echo '<div class="videos-carousel owl-carousel owl-theme">';
+            $homepageServices = new WP_Query(array(
+                'posts_per_page'=>6,
+                'post_type'=>'videos',
+            ));
+            while($homepageServices->have_posts()){
+                $homepageServices->the_post();
+
+                echo '<a href="' . get_the_permalink() . '" class="">';
+                echo '<div class="position-relative overflow-h img-hover w-100">';
+                the_post_thumbnail('full',array('class'=>'w-100','style'=>'height:140px;object-fit:cover;'));
+                echo '</div>';
+                echo '<h6 class="pt-4">' . get_the_title() . '</h6>';
+
+                echo '</a>';
+
+            } wp_reset_postdata();
+
+    echo '</div>';
+
+    echo '<div class="bg-accent w-100 mt-4 bg-accent-divider" style="height:2px;"></div>';
+
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+echo '</section>';
+
 // start of content
 if(have_rows('sections')):
-    echo '<section class="pt-5 pb-5">';
+    echo '<section class="pb-5">';
     echo '<div class="container">';
         while(have_rows('sections')): the_row();
         $videos = get_sub_field('videos');
