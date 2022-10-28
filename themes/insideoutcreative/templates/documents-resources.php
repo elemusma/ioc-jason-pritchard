@@ -27,6 +27,9 @@ echo '</div>';
 
 echo '<div class="col-md-7 text-center">';
 echo '<h1 class="text-white border-top-bottom p-3">' . $title . '</h1>';
+if(get_sub_field('description')):
+echo get_sub_field('description');
+endif;
 echo '</div>';
 
 echo '</div>';
