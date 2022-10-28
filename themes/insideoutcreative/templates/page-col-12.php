@@ -1,4 +1,9 @@
-<?php get_header();
+<?php
+/**
+ * Template Name: Page Col 12
+ */
+get_header(); 
+
 global $post; 
 if ( ! post_password_required( $post ) ) {
 
@@ -13,7 +18,7 @@ if(get_the_content()){
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
-echo '<div class="col-md-9 text-center">';
+echo '<div class="col-12 text-center">';
 echo '<h1>' . get_the_title() . '</h1>';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
@@ -43,5 +48,7 @@ echo '</div>';
 echo '</section>';
    
 }
-get_footer(); 
+
+get_footer();
+
 ?>
