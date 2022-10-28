@@ -27,9 +27,6 @@ echo '</div>';
 
 echo '<div class="col-md-7 text-center">';
 echo '<h1 class="text-white border-top-bottom p-3">' . $title . '</h1>';
-if(get_sub_field('description')):
-echo get_sub_field('description');
-endif;
 echo '</div>';
 
 echo '</div>';
@@ -47,6 +44,9 @@ $link_target = $link['target'] ? $link['target'] : '_self';
 echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="col-lg-3 col-md-6 col-documents-resources text-center mb-3 text-black bold" style="">';
 echo '<div class="position-relative h-100 d-flex align-items-center justify-content-center pl-3 pr-3 pt-2 pb-2" style="background:rgba(255,255,255,.5);border:1px solid #d4d2d0;border-radius:15px;">';
 echo esc_html( $link_title );
+if(get_sub_field('description')):
+    echo get_sub_field('description');
+    endif;
 echo '</div>';
 echo '</a>';
 
