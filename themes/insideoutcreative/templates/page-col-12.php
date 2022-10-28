@@ -19,7 +19,7 @@ echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 echo '<div class="col-12 text-center">';
-echo '<h1>' . get_the_title() . '</h1>';
+echo '<h1 class="bold border-top-bottom p-3">' . get_the_title() . '</h1>';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile; else:
