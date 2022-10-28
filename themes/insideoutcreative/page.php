@@ -4,11 +4,13 @@ if ( ! post_password_required( $post ) ) {
 
 if(get_the_content()){
 
+    if(has_post_thumbnail()):
     echo '<section class="pt-5">';
 
     the_post_thumbnail('full',array('class'=>'w-100 h-100'));
 
     echo '</section>';
+    endif;
 
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
