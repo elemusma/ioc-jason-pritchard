@@ -18,7 +18,7 @@ if(get_the_content()){
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
-echo '<div class="col-12 text-center">';
+echo '<div class="col-12">';
 echo '<h1 class="bold border-top-bottom p-3 d-inline-block">' . get_the_title() . '</h1>';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
