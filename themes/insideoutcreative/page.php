@@ -13,8 +13,26 @@ if(get_the_content()){
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
+// echo '<div class="col-md-3">';
+// if ( $post->post_parent ) {
+//     echo '<a class="btn-accent-primary text-white" href="' . get_permalink( $post->post_parent ) . '" target="">Back to ' . get_the_title( $post->post_parent ) . '</a>';
+// } else {
+//     echo '<a class="btn-accent-primary text-white" href="' . home_url() . '/" target="">Back to Home</a>';
+//     }
+// echo '</div>';
+
+echo '<div class="col-md-9 d-md-flex align-items-center pb-4">';
+if ( $post->post_parent ) {
+    echo '<a class="btn-accent-primary mr-5 pl-3 pr-3 text-accent" href="' . get_permalink( $post->post_parent ) . '" target="">Back to ' . get_the_title( $post->post_parent ) . '</a>';
+} else {
+    echo '<a class="btn-accent-primary mr-5 pl-3 pr-3 text-accent" href="' . home_url() . '/" target="">Back to Home</a>';
+    }
+echo '<h1 class="bold border-top-bottom p-3 d-inline-block mb-0">' . get_the_title() . '</h1>';
+echo '</div>';
+
+
+
 echo '<div class="col-md-9">';
-echo '<h1 class="bold border-top-bottom p-3 d-inline-block">' . get_the_title() . '</h1>';
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile; else:
