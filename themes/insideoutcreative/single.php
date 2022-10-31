@@ -7,8 +7,8 @@
         echo '<h1 class="mb-4">';
         echo single_post_title();
         echo '</h1>';
-        echo '<p class="mb-0">Posted on: ' . get_the_time('F jS, Y') . '</p>';
-        echo '<p class="">By: ' . get_the_author() . '</p>';
+        echo '<p class="mb-0">Posted on: ' . get_the_time('F jS, Y') . ' | By: ' .  get_the_author() . '</p>';
+        // echo '<p class="">By: ' . get_the_author() . '</p>';
         if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile; else: ?>
