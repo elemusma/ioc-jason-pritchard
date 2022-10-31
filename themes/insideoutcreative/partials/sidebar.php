@@ -16,7 +16,7 @@ echo '<h3 class="teko">Training Library</h3>';
 
 $recentBlog = new WP_Query(array(
 'posts_per_page' => 10,
-'post_type' => 'videos',
+'post_type' => 'post',
 'post__not_in' => [get_the_ID()]
 )); 
 echo '<ul>';
