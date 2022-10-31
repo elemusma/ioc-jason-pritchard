@@ -35,7 +35,7 @@ echo '<section class="">';
             echo '<div class="videos-carousel owl-carousel owl-theme">';
             $homepageServices = new WP_Query(array(
                 'posts_per_page'=>6,
-                'post_type'=>'videos',
+                'post_type'=>'post',
             ));
             while($homepageServices->have_posts()){
                 $homepageServices->the_post();
