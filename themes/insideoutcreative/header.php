@@ -25,8 +25,8 @@ if(!is_front_page()):
 
 <div class="nav">
 <div class="container">
-<div class="row justify-content-end">
-<div class="col-12 text-center">
+<div class="row justify-content-end align-items-center">
+<div class="col-md-3 text-center">
 <a href="<?php echo home_url(); ?>">
 <?php 
 $logo = get_field('logo','options'); 
@@ -54,9 +54,9 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto m-aut
 </div>
 </a>
 </div> -->
-<div class="col-12">
+<div class="col-md-9">
 <div class="row justify-content-center">
-<div class="col-md-7">
+<div class="col-12">
     <?php echo get_template_part('partials/icons'); ?>
 </div>
 </div>

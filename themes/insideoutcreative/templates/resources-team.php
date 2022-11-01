@@ -11,17 +11,17 @@ if(is_user_logged_in()):
     echo '<section class="position-relative">';
 echo '<div class="container-fluid">';
 echo '<div class="row">';
-echo '<div class="col-md-5 pt-5 p-0 z-1" style="">';
+echo '<div class="col-md-5 pt-5 p-0 z-1 bg-black text-white" style="">';
 
-echo wp_get_attachment_image(33,'full',"",['class'=>'w-100 h-auto d-block logo-header','style'=>'']);
+// echo wp_get_attachment_image(33,'full',"",['class'=>'w-100 h-auto d-block logo-header','style'=>'']);
 
 echo '<div class="p-lg-5 pt-5 pb-5">';
 $current_user = wp_get_current_user();
 
 echo '<div class="pl-lg-5 pr-lg-5 pl-md-3 pr-md-3">';
 
-echo '<div class="divider mb-3"></div>';
-    echo '<h1 class="pt-3 pb-3 mb-0 bold" style="font-size:30px;">' . get_the_title() . '</h1>';
+// echo '<div class="divider mb-3"></div>';
+    echo '<h1 class="p-3 mb-0 bold border-top-bottom mb-4 text-center" style="font-size:30px;">' . get_the_title() . '</h1>';
 
 
 // if ( is_user_logged_in() ) {
@@ -42,8 +42,6 @@ echo '</div>';
 
 echo '</div>';
 
-echo wp_get_attachment_image(43,'full',"",['class'=>'w-100 h-auto d-block','style'=>'']);
-
 echo '</div>';
 
 echo '<div class="col-md-7 p-0">';
@@ -55,19 +53,23 @@ echo '</div>';
 echo '</div>';
 echo '</section>';
 
+echo '<div class="pb-5">';
+echo wp_get_attachment_image(43,'full',"",['class'=>'w-100 h-auto d-block','style'=>'']);
+echo '</div>';
+
     if(have_rows('resources_team')): while(have_rows('resources_team')): the_row();
 
-    echo '<section class="pt-5 pb-5 position-relative bg-black text-white">';
-    echo '<div class="container">';
-    echo '<div class="row justify-content-center">';
-    echo '<div class="col-md-9 text-center">';
+    // echo '<section class="pt-5 pb-5 position-relative bg-black text-white">';
+    // echo '<div class="container">';
+    // echo '<div class="row justify-content-center">';
+    // echo '<div class="col-md-9 text-center">';
 
-    echo get_sub_field('intro');
+    // echo get_sub_field('intro');
 
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-    echo '</section>';
+    // echo '</div>';
+    // echo '</div>';
+    // echo '</div>';
+    // echo '</section>';
 
     if(have_rows('team_repeater_new_again')): 
         echo '<div class="team">';
