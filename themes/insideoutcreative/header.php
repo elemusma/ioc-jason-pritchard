@@ -26,7 +26,7 @@ if(!is_front_page()):
 <div class="nav">
 <div class="container">
 <div class="row justify-content-end">
-<div class="col-md-6 text-center">
+<div class="col-12 text-center">
 <a href="<?php echo home_url(); ?>">
 <?php 
 $logo = get_field('logo','options'); 
@@ -37,12 +37,13 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto m-aut
 </a>
 </div>
 <?php 
-echo '<div class="col-md-3">';
+// echo '<div class="col-lg-4">';
     // wp_nav_menu(array(
     // 'menu' => 'Contact',
     // 'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
     // ));
-echo '</div>';
+    // echo get_template_part('partials/icons');
+// echo '</div>';
 ?>
 <!-- <div class="col-lg-4 col-6 desktop-hidden">
 <a id="navToggle" class="nav-toggle">
