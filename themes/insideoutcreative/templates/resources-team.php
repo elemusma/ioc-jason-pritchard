@@ -11,7 +11,7 @@ if(is_user_logged_in()):
     echo '<section class="position-relative">';
 echo '<div class="container-fluid">';
 echo '<div class="row">';
-echo '<div class="col-md-5 pt-5 p-0 z-1 bg-black text-white" style="">';
+echo '<div class="col-md-5 z-1 bg-black text-white" style="">';
 
 // echo wp_get_attachment_image(33,'full',"",['class'=>'w-100 h-auto d-block logo-header','style'=>'']);
 
