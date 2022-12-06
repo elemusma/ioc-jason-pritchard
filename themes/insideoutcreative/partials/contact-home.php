@@ -23,6 +23,10 @@ echo '<div class="col-md-4">';
 
 echo get_template_part('partials/si');
 
+echo '<div class="pt-5 text-gray">';
+echo get_field('website_message','options');
+echo '</div>';
+
 // echo '<div class="d-flex align-items-center justify-content-start pt-3">';
 // echo '<span class="text-white h5">Text Jason Directly</span>';
 // echo '</div>';

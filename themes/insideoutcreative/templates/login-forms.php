@@ -13,7 +13,7 @@ echo '<div class="col-md-5 p-0">';
 
 echo wp_get_attachment_image(43,'full',"",['class'=>'w-100 h-auto d-block','style'=>'']);
 
-echo '<div class="p-lg-5 pt-5 pb-5">';
+echo '<div class="pl-lg-5 pr-lg-5" style="padding-top:150px;padding-bottom:150px;">';
 $current_user = wp_get_current_user();
 
 echo '<div class="pl-lg-5 pr-lg-5 pl-md-3 pr-md-3">';
@@ -27,7 +27,7 @@ echo '<div class="divider mb-3"></div>';
 if ( is_user_logged_in() ) {
     echo '<div class="logged-in-user-dashboard">';
     echo '<div class="" style="height:13px;"></div>';
-    echo '<a class="btn-accent-primary" href="resources" target="">Go to Dashboard</a>';
+    echo '<a class="btn-accent-primary" href="resources" target="">Let\'s Get Started!</a>';
     echo '<p class="mt-2">Click <a href="' . home_url() . '/wp-admin/profile.php">here</a> to edit your profile page (optional).</p>';
     echo '<div class="" style="height:35px;"></div>';
     echo '</div>';

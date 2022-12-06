@@ -332,6 +332,10 @@ class Breeze_MinificationScripts extends Breeze_MinificationBase {
 						continue;
 					}
 
+					if ( false !== strpos( $tag, '.php' ) ) {
+						continue;
+					}
+
 					$path = $this->getpath( $url );
 
 					if ( $path !== false && preg_match( '#\.js$#', $path ) ) {
@@ -525,6 +529,9 @@ class Breeze_MinificationScripts extends Breeze_MinificationBase {
 
 					$scriptsrc = file_get_contents( $script );
 					$scriptsrc = preg_replace( '/\x{EF}\x{BB}\x{BF}/', '', $scriptsrc );
+					if(empty($scriptsrc)){
+						$scriptsrc = '';
+					}
 					$scriptsrc = rtrim( $scriptsrc, ";\n\t\r" ) . ';';
 
 					//Add try-catch?

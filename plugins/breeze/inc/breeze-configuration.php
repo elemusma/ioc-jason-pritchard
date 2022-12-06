@@ -1491,6 +1491,70 @@ class Breeze_Configuration {
 		exit;
 	}
 
+	public static function breeze_ajax_check_cdn_url() {
+		breeze_is_restricted_access();
+		check_ajax_referer( '_breeze_check_cdn_url', 'security' );
+
+		$breeze_user_agent = 'breeze-cdn-check-help-user';
+
+		$verify_host      = 2;
+		$ssl_verification = apply_filters( 'breeze_ssl_check_certificate', true );
+		if ( ! is_bool( $ssl_verification ) ) {
+			$ssl_verification = true;
+		}
+
+		if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+			$ssl_verification = false;
+			$verify_host      = 0;
+		}
+
+		$cdn_url = isset( $_POST['cdn_url'] ) ? trim( $_POST['cdn_url'] ) : '';
+		$cdn_url = ltrim( $cdn_url, 'https:' );
+		$cdn_url = 'https:' . $cdn_url;
+
+		if ( false === filter_var( $cdn_url, FILTER_VALIDATE_URL ) ) {
+			return false;
+		}
+
+		$connection = curl_init( 'https://sitecheck.sucuri.net/api/v3/?scan=' . $cdn_url );
+		curl_setopt( $connection, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt( $connection, CURLOPT_SSL_VERIFYHOST, $verify_host );
+		curl_setopt( $connection, CURLOPT_SSL_VERIFYPEER, $ssl_verification );
+		curl_setopt( $connection, CURLOPT_USERAGENT, $breeze_user_agent );
+		curl_setopt( $connection, CURLOPT_REFERER, home_url() );
+
+		/**
+		 * Accept up to 3 maximum redirects before cutting the connection.
+		 */
+		curl_setopt( $connection, CURLOPT_MAXREDIRS, 3 );
+		curl_setopt( $connection, CURLOPT_FOLLOWLOCATION, true );
+
+		$the_json  = curl_exec( $connection );
+		$http_code = curl_getinfo( $connection, CURLINFO_HTTP_CODE );
+		curl_close( $connection );
+
+		$response = array();
+
+		$is_json = json_decode( $the_json, true );
+		if ( $is_json === null && json_last_error() !== JSON_ERROR_NONE ) {
+			// incorrect data show error message
+			$is_safe = true;
+		} else {
+			// decoded with success
+			$is_safe = true;
+			if ( isset( $is_json['warnings'], $is_json['warnings']['security'], $is_json['warnings']['security']['malware'] ) ) {
+				$is_safe = false;
+
+				$response['message'] = '<strong>' . __( 'Important: ', 'breeze' ) . '</strong>';
+				$response['message'] .= __( 'The CDN URL you\'ve used is insecure.', 'breeze' );
+			}
+		}
+		$response['success'] = $is_safe;
+		wp_send_json( $response );
+
+		exit;
+	}
+
 	/**
 	 * Ajax purge Object Cache
 	 *

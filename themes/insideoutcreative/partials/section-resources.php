@@ -27,7 +27,7 @@ $link_title = $link['title'];
 $link_target = $link['target'] ? $link['target'] : '_self';
 
 
-echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="col-lg-3 col-md-6 col-resources" style="padding-top:150px;padding-bottom:150px;text-decoration:none;">';
+echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="col-lg-3 col-md-6 col-resources" style="padding-top:25px;padding-bottom:25px;text-decoration:none;">';
 echo '<div class="position-absolute bg-accent w-100 h-100 col-resources-overlay" style="top:0;left:0;opacity:0;transition:all .25s ease-in-out;"></div>';
 
 echo '<div class="d-flex justify-content-center position-relative z-3 h-100" style="">';

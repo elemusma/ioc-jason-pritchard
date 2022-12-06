@@ -5,9 +5,9 @@ if ( ! post_password_required( $post ) ) {
 if(get_the_content()){
 
     if(has_post_thumbnail()):
-    echo '<section class="pt-5">';
+    echo '<section class="">';
 
-    the_post_thumbnail('full',array('class'=>'w-100 h-100'));
+    the_post_thumbnail('full',array('class'=>'w-100','style'=>'height:300px;object-fit:cover;'));
 
     echo '</section>';
     endif;
@@ -25,9 +25,9 @@ echo '<div class="row justify-content-center">';
 
 echo '<div class="col-md-9 d-md-flex align-items-center pb-4">';
 if ( $post->post_parent ) {
-    echo '<a class="btn-accent-primary mr-5 pl-3 pr-3 text-accent" href="' . get_permalink( $post->post_parent ) . '" target="">Back to ' . get_the_title( $post->post_parent ) . '</a>';
+    echo '<a class="btn-accent-primary mr-5 pl-3 pr-3" href="' . get_permalink( $post->post_parent ) . '" target="">Back to ' . get_the_title( $post->post_parent ) . '</a>';
 } else {
-    echo '<a class="btn-accent-primary mr-5 pl-3 pr-3 text-accent" href="' . home_url() . '/" target="">Back to Home</a>';
+    echo '<a class="btn-accent-primary mr-5 pl-3 pr-3" href="' . home_url() . '/" target="">Back to Home</a>';
     }
 echo '<h1 class="bold border-top-bottom p-3 d-inline-block mb-0">' . get_the_title() . '</h1>';
 echo '</div>';
@@ -45,7 +45,7 @@ echo '</div>';
 echo '</div>';
 echo '</section>';
 
-echo get_template_part('partials/contact-home');
+// echo get_template_part('partials/contact-home');
 
 }
 

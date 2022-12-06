@@ -175,17 +175,36 @@ echo '<section class="pt-5 pb-5 position-relative" style="">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center align-items-center">';
 
-if( $gallery ): 
-foreach( $gallery as $image ):
-echo '<div class="col-lg-3 col-md-4 col-6 col col-portfolio mt-3 mb-3 overflow-h">';
-echo '<div class="position-relative">';
-// echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set">';
-echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 img-portfolio','style'=>'object-fit:contain;max-height:150px;filter:grayscale(1);'] );
-// echo '</a>';
-echo '</div>';
-echo '</div>';
-endforeach; 
+// if( $gallery ): 
+// foreach( $gallery as $image ):
+// echo '<div class="col-lg-3 col-md-4 col-6 col col-portfolio mt-3 mb-3 overflow-h">';
+// echo '<div class="position-relative">';
+// // echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set">';
+// echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 img-portfolio','style'=>'object-fit:contain;max-height:150px;filter:grayscale(1);'] );
+// // echo '</a>';
+// echo '</div>';
+// echo '</div>';
+// endforeach; 
+// endif;
+
+if(have_rows('gallery_with_links')): while(have_rows('gallery_with_links')): the_row();
+$image = get_sub_field('image');
+$link = get_field('link');
+if( $link ): 
+$link_url = $link['url'];
+$link_title = $link['title'];
+$link_target = $link['target'] ? $link['target'] : '_self';
+// echo '<a class="bg-accent btn" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">' . esc_html( $link_title ) . '</a>';
 endif;
+
+echo '<div class="col-lg-3 col-md-4 col-6 col col-portfolio mt-3 mb-3">';
+echo '<div class="position-relative img-hover">';
+echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '">';
+echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 h-100 img-portfolio','style'=>'object-fit:contain;max-height:150px;filter:grayscale(1);'] );
+echo '</a>';
+echo '</div>';
+echo '</div>';
+endwhile; endif;
 
 echo '</div>';
 echo '</div>';

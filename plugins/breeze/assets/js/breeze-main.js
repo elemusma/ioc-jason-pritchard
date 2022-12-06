@@ -91,6 +91,46 @@ jQuery( document ).ready(
 			}
 		);
 
+		if ( $box_container.length ) {
+			$( '.breeze-box' ).on( 'keyup paste', '#cdn-url', function () {
+				var cdn_value = $.trim( $( this ).val() );
+				if ( '' !== cdn_value && true === is_valid_url( cdn_value ) ) {
+
+					$.ajax( {
+						type: "POST",
+						url: ajaxurl,
+						data: {
+							action: 'breeze_check_cdn_url',
+							'cdn_url': cdn_value,
+							security: breeze_token_name.breeze_check_cdn_url
+						},
+						dataType: "json", // xml, html, script, json, jsonp, text
+						success: function ( data ) {
+							if(false === data.success){
+								$('#cdn-message-error').show();
+								$('#cdn-message-error').html(data.message);
+							}else{
+								$('#cdn-message-error').hide();
+							}
+						},
+						error: function ( jqXHR, textStatus, errorThrown ) {
+
+						},
+						// called when the request finishes (after success and error callbacks are executed)
+						complete: function ( jqXHR, textStatus ) {
+
+						}
+					} );
+				}else{
+					$('#cdn-message-error').hide();
+				}
+			} );
+		}
+
+		function is_valid_url( url ) {
+			return /^(http(s)?:)?\/\/(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test( url );
+		}
+
 		//clear cache by button
 		function breeze_purge_opcache_ajax() {
 			$.ajax(
@@ -1001,7 +1041,7 @@ jQuery( document ).ready(
 			data: { action: "breeze_file_permission_check", 'is-network': $( 'body' ).hasClass( 'network-admin' ) },
 			dataType: "html", // xml, html, script, json, jsonp, text
 			success: function ( data ) {
-				if ( '' === data ) {
+				if ( '' === data || 'no-issue' === data ) {
 					existing_notice.remove();
 				} else {
 					if ( existing_notice.length ) {

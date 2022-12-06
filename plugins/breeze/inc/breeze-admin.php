@@ -190,6 +190,7 @@ class Breeze_Admin {
 			'breeze_purge_opcache'   => '',
 			'breeze_import_settings' => '',
 			'breeze_reset_default' => '',
+			'breeze_check_cdn_url'  => '',
 		);
 
 		// Only create the security nonce if the user has manage_options ( administrator capabilities ).
@@ -202,6 +203,7 @@ class Breeze_Admin {
 				'breeze_purge_opcache'   => wp_create_nonce( '_breeze_purge_opcache' ),
 				'breeze_import_settings' => wp_create_nonce( '_breeze_import_settings' ),
 				'breeze_reset_default' => wp_create_nonce( '_breeze_reset_default' ),
+				'breeze_check_cdn_url'  => wp_create_nonce( '_breeze_check_cdn_url' ),
 			);
 		}
 
@@ -256,18 +258,27 @@ class Breeze_Admin {
 
 		if ( is_multisite() && ! is_subdomain_install() ) {
 			$blog_details = get_blog_details();
+			if ( ! empty( $blog_details->path ) ) {
+				$blog_details->path = '';
+			}
+
 			$current_host .= rtrim( $blog_details->path, '/' );
 		}
 
-		$current_screen_url = $current_protocol . '://' . $current_host . $current_script . '?' . $current_params;
+		#$current_screen_url = $current_protocol . '://' . $current_host . $current_script . '?' . $current_params;
+		$current_script = str_replace( '/wp-admin/', '', $current_script);
+		$current_screen_url = trailingslashit( admin_url() ) . $current_script . '?' . $current_params;
 		$current_screen_url = remove_query_arg( array( 'breeze_purge', '_wpnonce' ), $current_screen_url );
+
+		$purge_site_cache_url = esc_url( wp_nonce_url( add_query_arg( 'breeze_purge', 1, $current_screen_url ), 'breeze_purge_cache' ) );
+
 
 		// add purge all item
 		$args = array(
 			'id'     => 'breeze-purge-all',
 			'title'  => ( ! is_multisite() || $is_network ) ? esc_html__( 'Purge All Cache', 'breeze' ) : esc_html__( 'Purge Site Cache', 'breeze' ),
 			'parent' => 'breeze-topbar',
-			'href'   => esc_url( wp_nonce_url( add_query_arg( 'breeze_purge', 1, $current_screen_url ), 'breeze_purge_cache' ) ),
+			'href'   => $purge_site_cache_url,
 			'meta'   => array( 'class' => 'breeze-toolbar-group' ),
 		);
 		$wp_admin_bar->add_node( $args );
@@ -359,6 +370,7 @@ class Breeze_Admin {
 		add_action( 'wp_ajax_breeze_purge_database', array( 'Breeze_Configuration', 'breeze_ajax_purge_database' ) );
 		add_action( 'wp_ajax_breeze_purge_opcache', array( 'Breeze_Configuration', 'breeze_ajax_purge_opcache' ) );
 		add_action( 'wp_ajax_breeze_reset_default', array( 'Breeze_Configuration', 'reset_to_default_ajax' ) );
+		add_action( 'wp_ajax_breeze_check_cdn_url', array( 'Breeze_Configuration', 'breeze_ajax_check_cdn_url' ) );
 	}
 
 	/*

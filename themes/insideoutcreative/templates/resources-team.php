@@ -53,7 +53,7 @@ echo '</div>';
 echo '</div>';
 echo '</section>';
 
-echo '<div class="pb-5">';
+echo '<div class="">';
 echo wp_get_attachment_image(43,'full',"",['class'=>'w-100 h-auto d-block','style'=>'']);
 echo '</div>';
 
@@ -80,7 +80,7 @@ echo '</div>';
 
     echo '<div class="team-repeater">';
     echo '<section class="pt-5 pb-5 position-relative">';
-    echo '<div class="position-absolute w-100 d-lg-block d-none" style="height:30%;left:0;top:50%;transform:translate(0,-50%);background:#efeff0;"></div>';
+    echo '<div class="position-absolute w-100 d-lg-block d-none" style="height:75%;left:0;top:50%;transform:translate(0,-50%);background:#efeff0;"></div>';
     echo '<div class="container">';
     if($imageSide == 'Left'){
         echo '<div class="row justify-content-between align-items-center">';
@@ -109,27 +109,28 @@ echo '</div>';
     }
     echo '<h2 class="bold font-italic mb-0">' . get_sub_field('name') . '</h2>';
     echo '<h3>' . get_sub_field('job_title') . '</h3>';
-    echo '</div>';
-
-    echo '</div>';
-
-    echo '</div>';
-    echo '</div>';
-    echo '</section>';
-
-    echo '<section class="pb-5 position-relative" style="">';
-    echo '<div class="container">';
-    echo '<div class="row">';
-    echo '<div class="col-12 content-col">';
-
-    echo '<div class="position-relative pb-5" style="border-bottom:2px solid var(--accent-primary);">';
     echo get_sub_field('content');
     echo '</div>';
 
     echo '</div>';
+
     echo '</div>';
     echo '</div>';
     echo '</section>';
+
+    // echo '<section class="pb-5 position-relative" style="">';
+    // echo '<div class="container">';
+    // echo '<div class="row">';
+    // echo '<div class="col-12 content-col">';
+
+    // echo '<div class="position-relative pb-5" style="border-bottom:2px solid var(--accent-primary);">';
+    // echo get_sub_field('content');
+    // echo '</div>';
+
+    // echo '</div>';
+    // echo '</div>';
+    // echo '</div>';
+    // echo '</section>';
 
     echo '</div>';
 
