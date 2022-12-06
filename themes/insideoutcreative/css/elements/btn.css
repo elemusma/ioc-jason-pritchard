@@ -23,6 +23,6 @@
 }
 
 .btn-accent-primary:hover {
-    color: var(--accent-primary);
+    color: var(--accent-primary) !important;
     background: white;
 }
