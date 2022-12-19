@@ -55,6 +55,10 @@ echo '</div>';
 echo '</div>';
 echo '</section>';
 
+if ( is_user_logged_in() ) {
+    echo get_template_part('partials/section-resources');
+}
+
  get_footer();
 
 ?>
