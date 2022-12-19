@@ -27,7 +27,7 @@ if(!is_front_page()):
 <div class="container">
 <div class="row justify-content-end align-items-center">
 <div class="col-md-3 text-center">
-<a href="<?php echo home_url(); ?>">
+<a href="<?php echo home_url(); ?>/resources/">
 <?php 
 $logo = get_field('logo','options'); 
 if($logo){
