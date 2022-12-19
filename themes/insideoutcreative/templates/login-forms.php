@@ -27,7 +27,7 @@ echo '<div class="divider mb-3"></div>';
 if ( is_user_logged_in() ) {
     echo '<div class="logged-in-user-dashboard">';
     echo '<div class="" style="height:13px;"></div>';
-    echo '<a class="btn-accent-primary" href="resources" target="">Let\'s Get Started!</a>';
+    echo '<a class="btn-accent-primary" href="' . home_url() . '/resources" target="">Let\'s Get Started!</a>';
     echo '<p class="mt-2">Click <a href="' . home_url() . '/wp-admin/profile.php">here</a> to edit your profile page (optional).</p>';
     echo '<div class="" style="height:35px;"></div>';
     echo '</div>';
