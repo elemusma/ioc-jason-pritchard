@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row justify-content-between align-items-center">
 <div class="col-md-3 text-center">
-<a href="<?php echo home_url(); ?>">
+<a href="<?php echo home_url(); ?>/resources/">
 <?php $logo = get_field('logo','options'); $logoFooter = get_field('logo_footer','options'); 
 if($logoFooter){
 echo wp_get_attachment_image($logoFooter['id'],'full',"",['class'=>'w-100 h-auto']); 
