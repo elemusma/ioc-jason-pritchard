@@ -5,7 +5,7 @@ if ( ! post_password_required( $post ) ) {
 if(get_the_content()){
 
     if(has_post_thumbnail()):
-    echo '<section class="">';
+    echo '<section class="hero-img">';
 
     the_post_thumbnail('full',array('class'=>'w-100','style'=>'height:300px;object-fit:cover;'));
 
