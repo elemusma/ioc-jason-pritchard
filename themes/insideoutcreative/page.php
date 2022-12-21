@@ -1,4 +1,5 @@
-<?php get_header();
+<?php 
+get_header();
 global $post; 
 if ( ! post_password_required( $post ) ) {
 
@@ -11,11 +12,6 @@ if(get_the_content()){
 
     echo '</section>';
     endif;
-
-
-    // if(get_field('is_user_logged_in') == 'Yes'){
-    //     if(is_user_logged_in()){
-    // }
 
 
 echo '<section class="pt-5 pb-5">';
@@ -34,27 +30,45 @@ echo '</div>';
 
 
 echo '<div class="col-md-9">';
+
+if(get_field('is_user_logged_in') == 'Yes'){
+    if(is_user_logged_in()){
+
+
+
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 the_content();
 endwhile; else:
 echo '<p>Sorry, no posts matched your criteria.</p>';
 endif;
+
+
+
+    
+} // end of is user logged in
+else {
+    echo get_template_part('partials/is-user-logged-in');
+}
+
+} // end of radio button for is user logged in
+
+else { // if no for is user logged in ACF
+    if ( have_posts() ) : while ( have_posts() ) : the_post();
+    the_content();
+    endwhile; else:
+    echo '<p>Sorry, no posts matched your criteria.</p>';
+    endif;
+}
+
 echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</section>';
 
-// echo get_template_part('partials/contact-home');
 
-// if(get_field('is_user_logged_in') == 'Yes'){
     
-//     } // end of is user logged in
-//     else {
-//         echo get_template_part('partials/is-user-logged-in');
-// }
 
-//     } // end of radio button for is user logged in
-    
+
 }
 
 } else {
