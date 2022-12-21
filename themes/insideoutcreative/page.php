@@ -15,6 +15,7 @@ if(get_the_content()){
 
     if(get_field('is_user_logged_in') == 'Yes'){
         if(is_user_logged_in()){
+    }
 
 
 echo '<section class="pt-5 pb-5">';
@@ -45,10 +46,11 @@ echo '</section>';
 
 // echo get_template_part('partials/contact-home');
 
-} // end of is user logged in
-
-else {
-    echo get_template_part('partials/is-user-logged-in');
+if(get_field('is_user_logged_in') == 'Yes'){
+    
+    } // end of is user logged in
+    else {
+        echo get_template_part('partials/is-user-logged-in');
 }
 
     } // end of radio button for is user logged in
