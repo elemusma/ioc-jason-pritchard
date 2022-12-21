@@ -14,7 +14,7 @@ if(get_the_content()){
     endif;
 
 
-echo '<section class="pt-5 pb-5">';
+echo '<section class="pt-5 pb-5" style="min-height:66vh;">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 
