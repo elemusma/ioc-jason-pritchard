@@ -6,7 +6,7 @@
 
  get_header();
 
-if(is_user_logged_in()):
+// if(is_user_logged_in()):
 
     echo '<section class="position-relative">';
 echo '<div class="container-fluid">';
@@ -141,11 +141,11 @@ echo '</div>';
 
     endwhile; endif;
 
-else:
+// else:
 
-    echo get_template_part('partials/is-user-logged-in');
+//     echo get_template_part('partials/is-user-logged-in');
 
-endif;
+// endif;
 
  get_footer();
 

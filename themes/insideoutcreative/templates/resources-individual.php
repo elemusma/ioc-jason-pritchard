@@ -6,7 +6,7 @@
 
  get_header();
 
- if(is_user_logged_in()):
+//  if(is_user_logged_in()):
 //  start of header
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
@@ -99,11 +99,11 @@ if(have_rows('sections')):
     echo '</section>';
 endif;
 // end of content
-else:
+// else:
 
-    echo get_template_part('partials/is-user-logged-in');
+//     echo get_template_part('partials/is-user-logged-in');
 
-endif;
+// endif;
 
  get_footer();
 
