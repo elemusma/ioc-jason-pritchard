@@ -12,16 +12,14 @@ if(get_the_content()){
     echo '</section>';
     endif;
 
+
+    if(get_field('is_user_logged_in') == 'Yes'){
+        if(is_user_logged_in()){
+    }
+
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
-// echo '<div class="col-md-3">';
-// if ( $post->post_parent ) {
-//     echo '<a class="btn-accent-primary text-white" href="' . get_permalink( $post->post_parent ) . '" target="">Back to ' . get_the_title( $post->post_parent ) . '</a>';
-// } else {
-//     echo '<a class="btn-accent-primary text-white" href="' . home_url() . '/" target="">Back to Home</a>';
-//     }
-// echo '</div>';
 
 echo '<div class="col-md-9 d-md-flex align-items-center pb-4">';
 if ( $post->post_parent ) {
@@ -47,6 +45,10 @@ echo '</section>';
 
 // echo get_template_part('partials/contact-home');
 
+}
+
+if(get_field('is_user_logged_in') == 'Yes'){
+    }
 }
 
 } else {
