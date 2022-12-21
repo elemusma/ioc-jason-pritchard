@@ -47,11 +47,12 @@ echo '</section>';
 
 } // end of is user logged in
 
+else {
+    echo get_template_part('partials/is-user-logged-in');
+}
 
     } // end of radio button for is user logged in
-    else {
-        echo get_template_part('partials/is-user-logged-in');
-    }
+    
 }
 
 } else {
