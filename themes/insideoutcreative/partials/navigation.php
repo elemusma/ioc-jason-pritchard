@@ -6,7 +6,7 @@ echo '<div class="nav">';
 echo '<div class="container">';
 echo '<div class="row justify-content-end align-items-center">';
 echo '<div class="col-md-3 text-center">';
-echo '<a href="<?php echo home_url(); ?>/resources/">';
+echo '<a href="' . home_url() . '/resources/">';
 
 $logo = get_field('logo','options'); 
 if($logo){
