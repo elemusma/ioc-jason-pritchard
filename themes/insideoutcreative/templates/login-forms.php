@@ -18,7 +18,7 @@ $current_user = wp_get_current_user();
 
 echo '<div class="pl-lg-5 pr-lg-5 pl-md-3 pr-md-3">';
 if ( is_user_logged_in() ) {
-    echo '<h1 class="pt-3 pb-3 mb-0 bold" style="font-size:30px;">Welcome, ' . $current_user->display_name . '</h1>';
+    echo '<h1 class="pt-3 pb-3 mb-0 bold" style="font-size:30px;">Welcome, ' . $current_user->first_name . '</h1>';
 } else {
     echo '<h1 class="pt-3 pb-3 mb-0 bold" style="font-size:30px;">' . get_the_title() . '</h1>';
 }
