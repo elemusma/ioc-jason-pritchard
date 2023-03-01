@@ -3,7 +3,6 @@ input.gform_button.button {
   border-color: var(--accent-primary);
   border: none;
   border-radius: 6px;
-  border-radius: 25px;
   padding: 10px 35px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
