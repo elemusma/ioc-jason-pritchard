@@ -1,6 +1,8 @@
 input.gform_button.button {
   background-color: var(--accent-primary);
   border-color: var(--accent-primary);
+  border: none;
+  border-radius: 6px;
   border-radius: 25px;
   padding: 10px 35px;
   cursor: pointer;

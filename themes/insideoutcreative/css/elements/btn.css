@@ -21,6 +21,7 @@
     transition: all .25s ease-in-out;
     display: inline-block;
     white-space: nowrap;
+    border-radius: 6px;
 }
 
 .btn-accent-primary:hover {
